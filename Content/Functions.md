@@ -1,0 +1,65 @@
+# Functions
+ 
+Functions group reusable logic under a name. Define them before calling them.
+ 
+## Basic Function
+ 
+```bash
+#!/bin/bash
+ 
+greet() {
+    echo "Hello, World!"
+}
+ 
+greet   # call the function
+```
+ 
+---
+ 
+## Function with Arguments
+ 
+Arguments are passed when calling the function and accessed via `$1`, `$2`, etc. inside it.
+ 
+```bash
+#!/bin/bash
+ 
+greet() {
+    local name="$1"
+    local age="$2"
+    echo "Name: ${name}, Age: ${age}"
+}
+ 
+greet "Alice" 25
+greet "Bob"   30
+```
+ 
+**Output:**
+```
+Name: Alice, Age: 25
+Name: Bob, Age: 30
+```
+ 
+---
+ 
+## Returning a Value
+ 
+Use `echo` inside the function and `$()` to capture the result.
+ 
+```bash
+#!/bin/bash
+ 
+add() {
+    local result=$(( $1 + $2 ))
+    echo "${result}"
+}
+ 
+sum=$(add 4 7)
+echo "4 + 7 = ${sum}"
+```
+ 
+**Output:**
+```
+4 + 7 = 11
+```
+ 
+---

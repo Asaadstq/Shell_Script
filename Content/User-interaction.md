@@ -1,0 +1,49 @@
+# User Interaction
+ 
+## `read` — Basic Input
+ 
+```bash
+#!/bin/bash
+ 
+echo "What is your name?"
+read name
+echo "Hello, ${name}!"
+```
+ 
+---
+ 
+## `read -p` — Inline Prompt
+ 
+```bash
+#!/bin/bash
+ 
+read -p "Enter your name: " name
+read -p "Enter your city: " city
+ 
+echo "Hello ${name} from ${city}!"
+```
+ 
+---
+ 
+## `read -s` — Hidden Input (e.g. passwords)
+ 
+```bash
+#!/bin/bash
+ 
+read -p "Username: " username
+read -s -p "Password: " password
+echo ""   # move to a new line after hidden input
+ 
+echo "Logging in as ${username}..."
+```
+ 
+**Output:**
+```
+Username: alice
+Password:
+Logging in as alice...
+```
+ 
+> The password is not shown while typing because of `-s`.
+ 
+---

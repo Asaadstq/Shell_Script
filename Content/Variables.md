@@ -1,0 +1,55 @@
+# Variables
+
+
+ 
+## Declaration and Usage
+ 
+```bash
+#!/bin/bash
+ 
+name="Alice"
+age=25
+language="Bash"
+ 
+echo "Name    : ${name}"
+echo "Age     : ${age}"
+echo "Language: ${language}"
+```
+ 
+**Output:**
+```
+Name    : Alice
+Age     : 25
+Language: Bash
+```
+ 
+---
+ 
+## Global vs Local Variables
+ 
+Variables are **global** by default. Use the `local` keyword inside a function to restrict the variable to that scope.
+ 
+```bash
+#!/bin/bash
+ 
+language="Bash"   # global — accessible everywhere
+ 
+show_info() {
+    local version="5.1"   # local — only exists inside this function
+    echo "Language: ${language}"
+    echo "Version : ${version}"
+}
+ 
+show_info
+ 
+echo "Version outside function: ${version}"   # prints nothing
+```
+ 
+**Output:**
+```
+Language: Bash
+Version : 5.1
+Version outside function:
+```
+ 
+---
